@@ -1,99 +1,96 @@
 import ScrollReveal from './ScrollReveal';
-import heroImage from '../assets/images/hero.jpg';
+import heroBg from '../assets/images/yogeek/hero_yogeek.png';
 
 export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative min-h-[90vh] flex items-center pt-10 pb-20 overflow-hidden bg-gradient-to-b from-indigo-50/30 to-transparent"
+      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-10"
     >
-      <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left Content */}
-        <ScrollReveal>
-          <h1
-            id="hero-title"
-            className="font-display text-display-lg md:text-display-xl mb-6 leading-tight"
-          >
-            The Only Desk That{' '}
-            <span className="text-primary">Adapts</span> To Your Lifestyle
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl">
-            Work on the floor, on a chair, or standing—all with one premium electric desk.
-            Engineered for total freedom of movement.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#cta"
-              className="inline-flex items-center justify-center bg-primary text-white px-10 py-5 rounded-lg font-headline text-label-md hover:bg-indigo-700 transition-all shadow-xl shadow-primary/25 hover:scale-105 active:scale-95"
-              aria-label="Pre-order Lowerdesk now at 55 percent off"
-            >
-              Pre-order Now — 55% Off
-            </a>
-            <button
-              className="flex items-center justify-center gap-2 border border-outline px-10 py-5 rounded-lg font-label text-label-md hover:bg-indigo-50 hover:border-primary transition-all"
-              aria-label="Watch the film about Lowerdesk design"
-            >
-              <span className="material-symbols-outlined text-primary" aria-hidden="true">
-                play_circle
-              </span>
-              Watch the Film
-            </button>
-          </div>
-
-          {/* Featured In */}
-          <div className="mt-12 flex items-center gap-6 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
-            <span className="font-label text-label-md uppercase tracking-[0.2em] text-on-surface-variant">
-              Featured in
-            </span>
-            <ul className="flex gap-8" aria-label="Featured publications">
-              <li className="font-bold tracking-tighter text-xl text-on-surface">WIRED</li>
-              <li className="font-bold tracking-tighter text-xl text-on-surface">DWELL</li>
-              <li className="font-bold tracking-tighter text-xl text-on-surface">FORBES</li>
-            </ul>
-          </div>
-        </ScrollReveal>
-
-        {/* Right Content — Product Image */}
-        <ScrollReveal delay={200} className="relative">
-          {/* Decorative Glow */}
-          <div
-            className="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-10"
-            aria-hidden="true"
-          />
-
-          <div className="rounded-xl overflow-hidden product-shadow border border-white/40">
-            <img
-              src={heroImage}
-              alt="Lifestyle photography of a woman working at a Lowerdesk desk in a modern home office setting"
-              className="w-full object-cover aspect-[4/5] lg:aspect-square"
-              width="600"
-              height="600"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </div>
-
-          {/* Floating Height Monitor */}
-          <div
-            className="absolute bottom-10 -left-10 glass p-6 rounded-xl shadow-2xl max-w-xs hidden md:block border-indigo-100/50"
-            aria-label="Live desk height monitoring display showing 49.2 centimeters in floor-sit mode"
-          >
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-3 h-3 bg-indigo-500 rounded-full" aria-hidden="true">
-                <span className="sr-only">Active</span>
-              </div>
-              <span className="text-label-md font-label text-primary">Live Precision Monitoring</span>
-            </div>
-            <div className="font-mono text-4xl font-bold tracking-tighter text-on-surface">
-              49.2<span className="text-sm">cm</span>
-            </div>
-            <p className="text-caption font-caption text-secondary mt-1">
-              Current height: Floor-sit mode active.
-            </p>
-          </div>
-        </ScrollReveal>
+      {/* Background image overlay */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        <img
+          src={heroBg}
+          alt="Yogeek life: Woman floor-sitting at a sustainable teak desk in a sunlit studio."
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+        />
       </div>
+
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        {/* Left column */}
+        <div className="md:col-span-8">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-6">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" aria-hidden="true"></span>
+              <span className="font-label text-[10px] text-primary uppercase tracking-widest font-bold">
+                Live Inventory: Few Units Remaining
+              </span>
+            </div>
+            <span className="font-label text-[13px] font-bold tracking-[0.08em] uppercase text-primary mb-4 block">
+              The Scientific Pivot
+            </span>
+            <h1
+              id="hero-title"
+              className="font-display text-[clamp(40px,7vw,72px)] leading-[1.1] mb-8 text-on-surface font-extrabold"
+            >
+              Work in Flow.<br />
+              <span className="text-primary italic">Align with Nature.</span>
+            </h1>
+            <p className="font-body text-lg lg:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+              Experience the only performance desk designed to mirror natural human movement. From restorative floor positions to active standing states.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-8">
+              <a
+                href="https://fittrock.com/products/yogeek-sit-to-stand-adjustable-desk"
+                className="inline-flex bg-primary text-white px-10 py-4 font-label text-[13px] font-bold tracking-[0.08em] uppercase rounded-lg hover:shadow-xl hover:bg-[#3d664a] transition-all"
+                aria-label="Buy Yogeek Pro now"
+              >
+                Buy Yogeek Pro
+              </a>
+              <a
+                href="#video-showcase"
+                className="flex items-center gap-3 group cursor-pointer transition-all focus-visible:outline-none"
+                aria-label="Watch the science of biological alignment"
+              >
+                <span className="material-symbols-outlined text-primary scale-125" aria-hidden="true">
+                  play_circle
+                </span>
+                <span className="font-label text-[13px] font-bold tracking-[0.08em] uppercase text-on-surface border-b border-transparent group-hover:border-primary transition-all pb-0.5">
+                  Watch the Science
+                </span>
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Right column */}
+        <div className="md:col-span-4 hidden md:block text-right">
+          <ScrollReveal delay={200}>
+            <div className="border-l-2 border-primary/20 pl-8 space-y-6 text-left">
+              <div>
+                <span className="text-primary font-label text-[13px] font-bold tracking-[0.08em] uppercase block mb-1">
+                  Global Ecosystem
+                </span>
+                <p className="text-2xl font-headline font-bold text-on-surface leading-tight">
+                  v2.0 Performance Unit
+                </p>
+              </div>
+              <p className="text-on-surface-variant font-body text-base">
+                Crafted in Pune, MH
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Decorative Glow */}
+      <div
+        className="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
     </section>
   );
 }

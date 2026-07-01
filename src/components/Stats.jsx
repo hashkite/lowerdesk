@@ -1,32 +1,67 @@
 import ScrollReveal from './ScrollReveal';
 
 const stats = [
-  { id: 'energy', value: '42%', label: 'Energy Increase', delay: 0 },
-  { id: 'mobility', value: '3X', label: 'More Mobility', delay: 100 },
-  { id: 'reviews', value: '550+', label: 'Positive Reviews', delay: 200 },
-  { id: 'warranty', value: '3 Yr', label: 'Full Warranty', delay: 300 },
+  {
+    id: 'focus',
+    value: '+22%',
+    label: 'Focus Gain',
+    description: 'Cognitive throughput improvement.',
+    className: 'bg-surface-container border border-black/5',
+    textClass: 'text-primary',
+  },
+  {
+    id: 'stability',
+    value: 'High Stability',
+    label: 'Energy Baseline',
+    description: 'Engineered for deep-work states.',
+    className: 'bg-surface-container-high border border-black/5 md:col-span-2',
+    textClass: 'text-on-surface font-extrabold',
+  },
+  {
+    id: 'sustainability',
+    value: '100%',
+    label: 'Sustainability',
+    description: 'Biological sourcing materials.',
+    className: 'bg-primary text-white shadow-md',
+    textClass: 'text-white',
+  },
 ];
 
 const comparisonRows = [
   {
-    feature: 'Min Height',
-    traditional: '72 cm (Standard)',
-    lowerdesk: '49 cm (Floor-capable)',
+    feature: 'Floor Sitting Mode',
+    lowerdesk: 'Native Support',
+    lowerdeskSub: 'Engineered for 49cm floor-sitting height.',
+    traditional: 'Not Possible',
+    traditionalSub: 'Minimum height restricted to 65cm+.',
   },
   {
-    feature: 'Health Focus',
-    traditional: 'None (Sedentary)',
-    lowerdesk: 'Bio-Movement Optimized',
+    feature: 'Lowest Height',
+    lowerdesk: '49cm',
+    lowerdeskSub: 'True biological neutral for sitting.',
+    traditional: '65cm',
+    traditionalSub: 'Forces hip flexion and spinal strain.',
   },
   {
-    feature: 'Motor Type',
-    traditional: 'Standard (Noisy)',
-    lowerdesk: 'Silent Linear Drive',
+    feature: 'Motor Durability',
+    lowerdesk: 'Industrial Dual-Drive',
+    lowerdeskSub: '25,000+ lifecycle rating.',
+    traditional: 'Consumer Single-Drive',
+    traditionalSub: '5,000 lifecycle average.',
   },
   {
-    feature: 'Construction',
-    traditional: 'Particle Board',
-    lowerdesk: 'Solid Core Engineering',
+    feature: 'Stability at Peak',
+    lowerdesk: 'Zero-Wobble Core',
+    lowerdeskSub: 'Torsional rigidity up to 120cm.',
+    traditional: 'Telescopic Sway',
+    traditionalSub: 'Noticeable vibration above 105cm.',
+  },
+  {
+    feature: 'Material Sourcing',
+    lowerdesk: 'Regenerative Bamboo',
+    lowerdeskSub: 'FSC Certified, Carbon Negative.',
+    traditional: 'Melamine/MDF',
+    traditionalSub: 'Chemical-heavy glues and non-recyclable.',
   },
 ];
 
@@ -35,59 +70,102 @@ export default function Stats() {
     <section
       id="reviews"
       aria-labelledby="stats-heading"
-      className="py-vignette-padding bg-indigo-50/50 overflow-hidden"
+      className="py-20 lg:py-32 bg-surface-container-low"
     >
-      <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         <h2 id="stats-heading" className="sr-only">
-          Productivity Impact and Comparison
+          Yogeek Productivity Impact and Product Comparison
         </h2>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-20 text-center">
-          {stats.map((stat) => (
-            <ScrollReveal key={stat.id} delay={stat.delay} className="p-8">
-              <div
-                className="text-5xl font-display text-primary mb-2"
-                aria-label={`${stat.value} ${stat.label}`}
-              >
-                {stat.value}
-              </div>
-              <p className="font-label text-label-md uppercase tracking-[0.2em] text-on-surface-variant">
-                {stat.label}
-              </p>
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* Section Header */}
+        <ScrollReveal className="mb-12 border-l-4 border-primary pl-4">
+          <h3 className="font-headline text-3xl text-on-surface font-extrabold">
+            Yogeek Pro vs The World
+          </h3>
+          <p className="font-body text-base text-on-surface-variant mt-2">
+            The metrics that define workspace longevity.
+          </p>
+        </ScrollReveal>
 
         {/* Comparison Table */}
-        <ScrollReveal className="bg-white rounded-xl shadow-2xl overflow-x-auto border border-indigo-100">
-          <div className="min-w-[600px]" role="region" aria-label="Scrollable comparison table" tabIndex={0}>
+        <ScrollReveal className="bg-white rounded-xl shadow-2xl overflow-x-auto border border-outline-variant/30 mb-20">
+          <div className="min-w-[700px]" role="region" aria-label="Scrollable comparison table" tabIndex={0}>
             <table className="w-full text-left border-collapse">
               <caption className="sr-only">
-                Comparison between Traditional Desks and Lowerdesk Pro
+                Yogeek Pro vs Traditional Desks Comparison Matrix
               </caption>
               <thead>
-                <tr className="bg-indigo-950 text-white">
-                  <th className="p-8 font-headline text-headline-lg" scope="col">Feature</th>
-                  <th className="p-8 font-headline text-headline-lg" scope="col">Traditional Desk</th>
-                  <th className="p-8 font-headline text-headline-lg bg-primary" scope="col">Lowerdesk Pro</th>
+                <tr className="border-b border-black/5">
+                  <th className="p-6 lg:p-8 font-label text-[13px] font-bold tracking-[0.08em] uppercase text-on-surface-variant" scope="col">
+                    Metric
+                  </th>
+                  <th className="p-6 lg:p-8 bg-primary/5 rounded-t-xl border-x border-t border-primary/10" scope="col">
+                    <div className="flex flex-col">
+                      <span className="text-primary font-bold font-headline text-xl">Yogeek Pro</span>
+                      <span className="font-label text-[10px] text-primary/70 uppercase tracking-wider mt-1">
+                        Biological Alignment Standard
+                      </span>
+                    </div>
+                  </th>
+                  <th className="p-6 lg:p-8" scope="col">
+                    <div className="flex flex-col opacity-60">
+                      <span className="font-headline text-xl text-on-surface font-bold">Traditional Desks</span>
+                      <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider mt-1">
+                        Market Average
+                      </span>
+                    </div>
+                  </th>
                 </tr>
               </thead>
-              <tbody className="text-body-md">
+              <tbody className="font-body text-body-md">
                 {comparisonRows.map((row, index) => (
                   <tr
                     key={row.feature}
-                    className={index < comparisonRows.length - 1 ? 'border-b border-indigo-50' : ''}
+                    className="border-b border-black/5 group hover:bg-primary/5 transition-colors"
                   >
-                    <th className="p-8 font-bold text-on-surface" scope="row">{row.feature}</th>
-                    <td className="p-8 text-on-surface-variant">{row.traditional}</td>
-                    <td className="p-8 bg-indigo-50 font-bold text-primary">{row.lowerdesk}</td>
+                    <th className="p-6 lg:p-8 font-bold font-label text-[13px] tracking-wider uppercase text-on-surface-variant" scope="row">
+                      {row.feature}
+                    </th>
+                    <td className="p-6 lg:p-8 bg-primary/[0.02] text-primary font-bold border-x border-primary/10">
+                      {row.lowerdesk}
+                      <span className="text-xs font-normal block text-on-surface-variant mt-1">
+                        {row.lowerdeskSub}
+                      </span>
+                    </td>
+                    <td className="p-6 lg:p-8 text-on-surface-variant">
+                      {row.traditional}
+                      <span className="text-xs block text-on-surface-variant/70 mt-1">
+                        {row.traditionalSub}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </ScrollReveal>
+
+        {/* Bento Grid Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {stats.map((stat) => (
+            <ScrollReveal
+              key={stat.id}
+              className={`p-8 rounded-xl flex flex-col justify-between min-h-[220px] ${stat.className}`}
+            >
+              <span className="font-label text-[11px] font-bold tracking-[0.08em] uppercase opacity-75">
+                {stat.label}
+              </span>
+              <div>
+                <span className={`font-headline text-4xl block mb-2 leading-none ${stat.textClass}`}>
+                  {stat.value}
+                </span>
+                <p className="font-body text-sm opacity-90 leading-relaxed">
+                  {stat.description}
+                </p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );
