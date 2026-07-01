@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+/* ========================================
+   LOWERDESK DESIGN SYSTEM — Tailwind v4
+   ======================================== */
+
+/* Google Fonts are loaded via <link> in index.html for optimal performance */
+
+/* ========================================
+   THEME — Custom Design Tokens
+   ======================================== */
+@theme {
+  /* Brand Colors */
+  --color-primary: #4F46E5;
+  --color-primary-container: #1e1b4b;
+  --color-primary-fixed: #e0e7ff;
+  --color-primary-fixed-dim: #c8c6c5;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #c7d2fe;
+  --color-on-primary-fixed: #312e81;
+  --color-on-primary-fixed-variant: #4338ca;
+  --color-inverse-primary: #c7d2fe;
+
+  /* Secondary */
+  --color-secondary: #475569;
+  --color-secondary-container: #f1f5f9;
+  --color-secondary-fixed: #e2e8f0;
+  --color-secondary-fixed-dim: #c6c6c7;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #475569;
+  --color-on-secondary-fixed: #0f172a;
+  --color-on-secondary-fixed-variant: #475569;
+
+  /* Tertiary */
+  --color-tertiary: #4F46E5;
+  --color-tertiary-container: #1e1b4b;
+  --color-tertiary-fixed: #e6e1df;
+  --color-tertiary-fixed-dim: #c7d2fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #c7d2fe;
+  --color-on-tertiary-fixed: #1e1b4b;
+  --color-on-tertiary-fixed-variant: #4338ca;
+
+  /* Surface & Background */
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-surface-variant: #f1f5f9;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-tint: #4F46E5;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container-high: #f1f5f9;
+  --color-surface-container-highest: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #f4f0ef;
+
+  /* Error */
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #991b1b;
+
+  /* Outline */
+  --color-outline: #94a3b8;
+  --color-outline-variant: #e2e8f0;
+
+  /* Brand Accent */
+  --color-brand-sky: #4F46E5;
+
+  /* Typography — Font Families */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-headline: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+  --font-caption: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Typography — Font Sizes */
+  --text-display-xl: 72px;
+  --text-display-xl--line-height: 80px;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-xl--font-weight: 700;
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 36px;
+  --text-headline-lg-mobile--letter-spacing: -0.01em;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--letter-spacing: 0.01em;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--letter-spacing: 0.01em;
+  --text-body-md--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--letter-spacing: 0.05em;
+  --text-label-md--font-weight: 500;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption--font-weight: 400;
+
+  /* Spacing */
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --spacing-gutter: 24px;
+  --spacing-vignette-padding: 120px;
+
+  /* Border Radius */
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--text-body-md--line-height);
+  letter-spacing: var(--text-body-md--letter-spacing);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   ACCESSIBILITY — Focus Styles (WCAG 2.1)
+   ======================================== */
+*:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  font-size: var(--text-label-md);
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Product Card Shadow */
+.product-shadow {
+  box-shadow: 0 40px 100px -20px rgba(79, 70, 229, 0.08);
+}
+
+/* Navigation Underline Effect */
+.nav-item {
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item:focus-visible::after {
+  width: 100%;
+}
+
+/* ========================================
+   SCROLL REVEAL ANIMATIONS
+   ======================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-100 {
+  transition-delay: 100ms;
+}
+
+.reveal-delay-200 {
+  transition-delay: 200ms;
+}
+
+.reveal-delay-300 {
+  transition-delay: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================================
+   SCREEN READER ONLY
+   ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ========================================
+   MOBILE MENU OVERLAY
+   ======================================== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: white;
+  z-index: 50;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-overlay,
+  .mobile-menu {
+    transition: none;
+  }
+}

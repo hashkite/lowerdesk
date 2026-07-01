@@ -1,0 +1,5 @@
+# Robots.txt for Lowerdesk
+User-agent: *
+Allow: /
+
+Sitemap: https://lowerdesk.in/sitemap.xml
