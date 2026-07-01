@@ -8,7 +8,7 @@ export default function AnnouncementBar() {
       <p className="font-label text-label-md tracking-[0.2em] uppercase">
         Limited Edition Release. 55% Off —{' '}
         <a
-          href="#cta"
+          href="https://fittrock.com/products/yogeek-sit-to-stand-adjustable-desk"
           className="underline underline-offset-4 hover:text-white transition-colors focus-visible:outline-white"
         >
           Shop Now

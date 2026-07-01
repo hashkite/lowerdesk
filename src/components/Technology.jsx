@@ -1,25 +1,25 @@
 import ScrollReveal from './ScrollReveal';
-import motorImage from '../assets/images/motor.jpg';
-import certsImage from '../assets/images/certifications.jpg';
+import frameDetailImg from '../assets/images/yogeek/we_are_uppeal.png';
+import ctrlPanelImg from '../assets/images/yogeek/yogeek_desk_detail.png';
 
 const features = [
   {
-    id: 'height-range',
-    icon: 'straighten',
-    title: '49cm – 120cm Range',
-    description: "A custom-tuned motor system provides the industry's widest vertical travel range.",
-  },
-  {
-    id: 'speed',
-    icon: 'shutter_speed',
-    title: '32mm/s Silent Transition',
-    description: 'Ultra-quiet glide tech ensures you stay focused while the workspace evolves around you.',
-  },
-  {
-    id: 'capacity',
+    id: 'dual-motor',
     icon: 'precision_manufacturing',
-    title: '100kg Lift Capacity',
-    description: 'Industrial grade SPCC steel frame handles multi-monitor setups with ease.',
+    title: 'Dual-Motor Synchronization',
+    description: 'Intelligent controllers ensure both legs rise in perfect micro-alignment, within 0.1mm tolerance.',
+  },
+  {
+    id: 'whisper-quiet',
+    icon: 'shutter_speed',
+    title: 'Whisper-Quiet Action',
+    description: 'Decibel levels below 45dB. Performance that moves silently, preserving your concentration.',
+  },
+  {
+    id: 'honest-materials',
+    icon: 'workspace_premium',
+    title: 'Honest Materials',
+    description: 'Sustainable solid teak and bamboo meet cold-rolled architectural steel for a lifetime of service.',
   },
 ];
 
@@ -28,57 +28,81 @@ export default function Technology() {
     <section
       id="technology"
       aria-labelledby="tech-heading"
-      className="py-vignette-padding bg-indigo-950 text-white overflow-hidden"
+      className="bg-surface-container py-20 lg:py-32"
     >
-      <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        {/* Left — Text Content */}
-        <ScrollReveal>
-          <h2
-            id="tech-heading"
-            className="font-display text-display-lg mb-8"
-          >
-            Electric standing desk engineering that moves with intent
-          </h2>
-
-          <div className="space-y-12">
-            {features.map((feature) => (
-              <div key={feature.id} className="flex gap-6">
-                <div
-                  className="w-12 h-12 rounded-full border border-indigo-400/20 flex items-center justify-center shrink-0 bg-indigo-900"
-                  aria-hidden="true"
-                >
-                  <span className="material-symbols-outlined text-indigo-400">
-                    {feature.icon}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-indigo-200/70">{feature.description}</p>
-                </div>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          {/* Left Column — Visual Stack */}
+          <ScrollReveal className="relative">
+            <div className="bg-white rounded-xl overflow-hidden shadow-2xl border border-outline-variant">
+              <img
+                src={frameDetailImg}
+                alt="Engineering detail: Under-desk carbon steel framework and telescopic lift columns"
+                className="w-full h-auto object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+            
+            {/* Technical Overlay Badge */}
+            <div className="absolute -top-8 -right-8 bg-white/95 backdrop-blur p-6 rounded-xl shadow-2xl border border-primary/10 hidden md:block">
+              <div className="font-headline text-3xl text-primary font-bold">3200N</div>
+              <div className="font-label text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">
+                Lifting Capacity
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            </div>
 
-        {/* Right — Image Grid */}
-        <ScrollReveal className="grid grid-cols-2 gap-4">
-          <img
-            src={motorImage}
-            alt="Detailed view of the desk lifting mechanism and high-quality motor assembly"
-            className="rounded-xl grayscale hover:grayscale-0 transition-all duration-500 border border-indigo-400/10"
-            width="300"
-            height="400"
-            loading="lazy"
-          />
-          <img
-            src={certsImage}
-            alt="Warranty and quality certification badges for Lowerdesk desk components"
-            className="rounded-xl grayscale hover:grayscale-0 transition-all duration-500 mt-12 border border-indigo-400/10"
-            width="300"
-            height="400"
-            loading="lazy"
-          />
-        </ScrollReveal>
+            {/* Smart Controller Detail Popout */}
+            <div className="absolute -bottom-10 left-10 w-48 h-48 bg-white rounded-xl shadow-xl border border-outline-variant overflow-hidden hidden lg:block group">
+              <img
+                src={ctrlPanelImg}
+                alt="Smart OLED control panel close-up on solid timber desktop"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute bottom-3 left-3 bg-primary/95 text-[10px] text-white px-2 py-0.5 rounded font-label font-bold tracking-wider">
+                SMART CTRL
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Right Column — Engineering details */}
+          <div className="pl-0 lg:pl-12">
+            <ScrollReveal>
+              <span className="font-label text-[13px] font-bold tracking-[0.08em] uppercase text-primary mb-6 block">
+                Surgical Engineering
+              </span>
+              <h2
+                id="tech-heading"
+                className="font-headline text-4xl lg:text-5xl mb-12 text-on-surface leading-tight font-extrabold"
+              >
+                Precision in Motion.
+              </h2>
+
+              <div className="space-y-10">
+                {features.map((feature) => (
+                  <div key={feature.id} className="flex gap-8 group">
+                    <div
+                      className="bg-primary/10 p-4 rounded-xl h-fit group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary"
+                      aria-hidden="true"
+                    >
+                      <span className="material-symbols-outlined text-4xl">
+                        {feature.icon}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="font-headline text-xl font-bold mb-3 text-on-surface">
+                        {feature.title}
+                      </h3>
+                      <p className="text-on-surface-variant leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
       </div>
     </section>
   );

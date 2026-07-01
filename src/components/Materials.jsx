@@ -1,65 +1,74 @@
 import ScrollReveal from './ScrollReveal';
-import assemblyImage from '../assets/images/assembly.png';
-import woodImage from '../assets/images/wood-grain.jpg';
-
-const features = [
-  'Cold-rolled SPCC Carbon Steel Frame',
-  'Anti-Collision Sensing Technology',
-  'Eco-Friendly Formaldehyde-Free Materials',
-];
+import bambooImg from '../assets/images/yogeek/bamboo.png';
+import steelImg from '../assets/images/yogeek/image_7_2.png';
+import frameRetractedImg from '../assets/images/yogeek/uppeal_4_leg.png';
 
 export default function Materials() {
   return (
     <section
       id="specs"
       aria-labelledby="specs-heading"
-      className="py-vignette-padding"
+      className="py-20 lg:py-32 bg-surface-container-lowest"
     >
-      <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left — Image */}
-          <ScrollReveal className="lg:w-1/2">
-            <div className="relative">
-              <img
-                src={assemblyImage}
-                alt="Lowerdesk desk assembly showing precision-engineered parts and solid wood top"
-                className="rounded-xl product-shadow w-full"
-                width="600"
-                height="500"
-                loading="lazy"
-              />
-              <div className="absolute -bottom-6 -right-6 glass p-8 rounded-xl shadow-xl border border-indigo-100">
-                <div className="text-primary font-mono font-bold text-3xl mb-1">25mm</div>
-                <div className="text-caption font-caption uppercase tracking-[0.2em] text-on-surface-variant">
-                  Solid Tabletop
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          {/* Left Column — Text and Small Previews */}
+          <div>
+            <ScrollReveal>
+              <span className="font-label text-[13px] font-bold tracking-[0.08em] uppercase text-primary mb-6 block">
+                Sustainably Sourced
+              </span>
+              <h2
+                id="specs-heading"
+                className="font-headline text-4xl lg:text-5xl mb-8 text-on-surface leading-tight font-extrabold"
+              >
+                Material Excellence.
+              </h2>
+              <p className="font-body text-lg text-on-surface-variant mb-12 leading-relaxed">
+                We use FSC-certified bamboo and sustainable teak, treated with natural oils to preserve the wood's breathability and tactile warmth.
+              </p>
+            </ScrollReveal>
 
-          {/* Right — Text */}
-          <ScrollReveal delay={200} className="lg:w-1/2">
-            <h2
-              id="specs-heading"
-              className="font-display text-display-lg mb-6"
-            >
-              Premium materials without compromise
-            </h2>
-            <p className="font-body text-body-lg text-on-surface-variant mb-8">
-              We don't use particle board. Every Lowerdesk tabletop is cut from 25mm
-              high-density premium engineered wood with an anti-scratch, anti-bacterial
-              finish.
-            </p>
-            <ul className="space-y-4" role="list">
-              {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-indigo-600" aria-hidden="true">
-                    check_circle
-                  </span>
-                  <span className="font-body text-body-md text-on-surface">{feature}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Asymmetric Image Previews */}
+            <div className="grid grid-cols-2 gap-8">
+              <ScrollReveal delay={100} className="space-y-4">
+                <div className="aspect-square rounded-xl overflow-hidden border border-outline-variant">
+                  <img
+                    src={bambooImg}
+                    alt="Close-up of premium vertical grain laminated bamboo desk surface"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-label text-[11px] uppercase tracking-wider text-outline font-bold block text-center">
+                  Vertical Bamboo
+                </span>
+              </ScrollReveal>
+
+              <ScrollReveal delay={200} className="space-y-4">
+                <div className="aspect-square rounded-xl overflow-hidden border border-outline-variant">
+                  <img
+                    src={steelImg}
+                    alt="Precision laser welded joints on cold-rolled steel desk framework"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-label text-[11px] uppercase tracking-wider text-outline font-bold block text-center">
+                  Architectural Steel
+                </span>
+              </ScrollReveal>
+            </div>
+          </div>
+
+          {/* Right Column — Large Product Visual */}
+          <ScrollReveal delay={300} className="bg-white p-2 rounded-2xl shadow-xl border border-outline-variant">
+            <img
+              src={frameRetractedImg}
+              alt="Yogeek fully retracted desk frame and solid timber configuration"
+              className="w-full h-auto rounded-xl"
+              loading="lazy"
+            />
           </ScrollReveal>
         </div>
       </div>

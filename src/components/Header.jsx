@@ -7,10 +7,10 @@ export default function Header() {
   const firstFocusableRef = useRef(null);
 
   const navLinks = [
-    { href: '#design', label: 'Design', ariaLabel: 'Explore the Design' },
-    { href: '#technology', label: 'Technology', ariaLabel: 'Learn about the Technology' },
+    { href: '#design', label: 'Performance', ariaLabel: 'Explore the performance alignment' },
+    { href: '#technology', label: 'Technology', ariaLabel: 'Learn about the technology' },
     { href: '#specs', label: 'Specs', ariaLabel: 'View technical specifications' },
-    { href: '#reviews', label: 'Reviews', ariaLabel: 'Read customer reviews' },
+    { href: '#reviews', label: 'Community', ariaLabel: 'Read customer reviews and stories' },
   ];
 
   const toggleMenu = useCallback(() => {
@@ -55,81 +55,83 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-indigo-100/20 shadow-sm">
-      <nav
-        aria-label="Main Navigation"
-        className="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop h-20"
-      >
-        {/* Logo */}
-        <a
-          href="/"
-          aria-label="Lowerdesk Home"
-          className="font-headline text-headline-lg tracking-tighter text-on-surface z-50"
+    <>
+      <header className="sticky top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 h-20 transition-all">
+        <nav
+          aria-label="Main Navigation"
+          className="flex justify-between items-center max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 h-full"
         >
-          Lowerdesk
-        </a>
+          {/* Logo */}
+          <a
+            href="/"
+            aria-label="Lowerdesk by Fittrock Home"
+            className="font-headline text-2xl font-bold tracking-tight text-primary transition-colors hover:opacity-90"
+          >
+            lowerdesk <span className="text-sm font-normal text-on-surface-variant font-body lowercase">by fittrock</span>
+          </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              aria-label={link.ariaLabel}
-              className="font-label text-label-md text-secondary hover:text-primary transition-colors relative nav-item"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-label={link.ariaLabel}
+                className="font-label text-[13px] font-bold tracking-[0.08em] uppercase text-on-surface-variant hover:text-primary transition-all relative nav-item pb-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-        {/* Desktop CTA */}
-        <a
-          href="#cta"
-          className="hidden md:inline-flex bg-primary text-on-primary px-8 py-3 rounded-lg font-label text-label-md hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-primary/20"
-          aria-label="Buy Lowerdesk Pro Desk Now"
-        >
-          Buy Now
-        </a>
+          {/* Desktop CTA */}
+          <a
+            href="https://fittrock.com/products/yogeek-sit-to-stand-adjustable-desk"
+            className="hidden md:inline-flex bg-primary text-white px-8 py-2.5 font-label text-[13px] font-bold tracking-[0.08em] uppercase rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
+            aria-label="Buy Yogeek Sit to Stand Desk Now"
+          >
+            Buy Now
+          </a>
 
-        {/* Mobile Menu Button */}
-        <button
-          ref={menuButtonRef}
-          onClick={toggleMenu}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-menu"
-          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          className="md:hidden z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-surface-container transition-colors"
-        >
-          <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-            }`}
-            aria-hidden="true"
-          />
-          <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileMenuOpen ? 'opacity-0' : ''
-            }`}
-            aria-hidden="true"
-          />
-          <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-            }`}
-            aria-hidden="true"
-          />
-        </button>
-      </nav>
+          {/* Mobile Menu Button */}
+          <button
+            ref={menuButtonRef}
+            onClick={toggleMenu}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            className="md:hidden z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-surface-container transition-colors"
+          >
+            <span
+              className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
+                mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+              }`}
+              aria-hidden="true"
+            />
+            <span
+              className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
+                mobileMenuOpen ? 'opacity-0' : ''
+              }`}
+              aria-hidden="true"
+            />
+            <span
+              className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
+                mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}
+              aria-hidden="true"
+            />
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay — rendered outside header to avoid backdrop-blur stacking context */}
       <div
         className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu Panel — rendered outside header to avoid backdrop-blur stacking context */}
       <div
         ref={menuRef}
         id="mobile-menu"
@@ -165,15 +167,15 @@ export default function Header() {
 
         <div className="mt-auto pt-8">
           <a
-            href="#cta"
+            href="https://fittrock.com/products/yogeek-sit-to-stand-adjustable-desk"
             onClick={closeMenu}
-            className="block w-full text-center bg-primary text-on-primary px-8 py-4 rounded-lg font-label text-label-md hover:bg-indigo-700 transition-all shadow-lg shadow-primary/20"
-            aria-label="Buy Lowerdesk Pro Desk Now"
+            className="block w-full text-center bg-primary text-white px-8 py-4 rounded-lg font-label text-[13px] font-bold tracking-[0.08em] uppercase hover:bg-primary/95 transition-all shadow-lg"
+            aria-label="Buy Yogeek Sit to Stand Desk Now"
           >
             Buy Now
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 }

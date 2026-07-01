@@ -11,74 +11,74 @@
    ======================================== */
 @theme {
   /* Brand Colors */
-  --color-primary: #4F46E5;
-  --color-primary-container: #1e1b4b;
-  --color-primary-fixed: #e0e7ff;
-  --color-primary-fixed-dim: #c8c6c5;
+  --color-primary: #4a7c59;
+  --color-primary-container: #4a7c59;
+  --color-primary-fixed: #c8e8d0;
+  --color-primary-fixed-dim: #8ecf9e;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #c7d2fe;
-  --color-on-primary-fixed: #312e81;
-  --color-on-primary-fixed-variant: #4338ca;
-  --color-inverse-primary: #c7d2fe;
+  --color-on-primary-container: #d8f0de;
+  --color-on-primary-fixed: #002110;
+  --color-on-primary-fixed-variant: #2a6038;
+  --color-inverse-primary: #8ecf9e;
 
   /* Secondary */
-  --color-secondary: #475569;
-  --color-secondary-container: #f1f5f9;
-  --color-secondary-fixed: #e2e8f0;
-  --color-secondary-fixed-dim: #c6c6c7;
+  --color-secondary: #6b6358;
+  --color-secondary-container: #f0e8db;
+  --color-secondary-fixed: #f0e8db;
+  --color-secondary-fixed-dim: #d4ccbf;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #475569;
-  --color-on-secondary-fixed: #0f172a;
-  --color-on-secondary-fixed-variant: #475569;
+  --color-on-secondary-container: #5e5548;
+  --color-on-secondary-fixed: #1e1a13;
+  --color-on-secondary-fixed-variant: #4a4538;
 
   /* Tertiary */
-  --color-tertiary: #4F46E5;
-  --color-tertiary-container: #1e1b4b;
-  --color-tertiary-fixed: #e6e1df;
-  --color-tertiary-fixed-dim: #c7d2fe;
+  --color-tertiary: #705c30;
+  --color-tertiary-container: #c4a66a;
+  --color-tertiary-fixed: #f8e0a8;
+  --color-tertiary-fixed-dim: #dcc48e;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #c7d2fe;
-  --color-on-tertiary-fixed: #1e1b4b;
-  --color-on-tertiary-fixed-variant: #4338ca;
+  --color-on-tertiary-container: #554020;
+  --color-on-tertiary-fixed: #221a05;
+  --color-on-tertiary-fixed-variant: #554020;
 
   /* Surface & Background */
-  --color-background: #f8fafc;
-  --color-on-background: #0f172a;
+  --color-background: #f9f8f4;
+  --color-on-background: #2d2d2d;
   --color-surface: #ffffff;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-  --color-surface-variant: #f1f5f9;
-  --color-surface-bright: #ffffff;
-  --color-surface-dim: #f1f5f9;
-  --color-surface-tint: #4F46E5;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-low: #f8fafc;
-  --color-surface-container-high: #f1f5f9;
-  --color-surface-container-highest: #e2e8f0;
+  --color-on-surface: #2d2d2d;
+  --color-on-surface-variant: #5a5a5a;
+  --color-surface-variant: #e4e0d8;
+  --color-surface-bright: #faf6f0;
+  --color-surface-dim: #dbd7cf;
+  --color-surface-tint: #4a7c59;
+  --color-surface-container: #f0ece4;
+  --color-surface-container-low: #f5f1ea;
+  --color-surface-container-high: #eae6de;
+  --color-surface-container-highest: #e4e0d8;
   --color-surface-container-lowest: #ffffff;
-  --color-inverse-surface: #1e1b4b;
-  --color-inverse-on-surface: #f4f0ef;
+  --color-inverse-surface: #2e3230;
+  --color-inverse-on-surface: #f5f0e8;
 
   /* Error */
-  --color-error: #ef4444;
-  --color-error-container: #fee2e2;
+  --color-error: #b83230;
+  --color-error-container: #ffdad8;
   --color-on-error: #ffffff;
-  --color-on-error-container: #991b1b;
+  --color-on-error-container: #690005;
 
   /* Outline */
-  --color-outline: #94a3b8;
-  --color-outline-variant: #e2e8f0;
+  --color-outline: #74796e;
+  --color-outline-variant: #c4c8bc;
 
   /* Brand Accent */
-  --color-brand-sky: #4F46E5;
+  --color-brand-sky: #4a7c59;
 
   /* Typography — Font Families */
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-headline: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-label: 'Inter', system-ui, sans-serif;
-  --font-caption: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-headline: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-label: 'Poppins', system-ui, sans-serif;
+  --font-caption: 'Poppins', system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 
   /* Typography — Font Sizes */
   --text-display-xl: 72px;
@@ -330,4 +330,14 @@ body {
   .mobile-menu {
     transition: none;
   }
+}
+
+/* Hamburger button state overrides */
+.hamburger-button {
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
+}
+
+.hamburger-button.menu-open {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
